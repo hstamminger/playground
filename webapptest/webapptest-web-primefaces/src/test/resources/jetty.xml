@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+
+<Configure id="server" class="org.eclipse.jetty.server.Server">
+	<Call name="addConnector">
+		<Arg>
+			<New class="org.eclipse.jetty.server.ServerConnector">
+				<Arg>
+					<Ref refid="server" />
+				</Arg>
+				<Arg>
+					<New class="org.eclipse.jetty.server.SslConnectionFactory">
+						<Arg>
+							<New class="org.eclipse.jetty.util.ssl.SslContextFactory">
+								<Set name="keyStorePath">/keystore</Set>
+								<Set name="keyStorePassword">wicket</Set>
+								<Set name="keyManagerPassword">wicket</Set>
+								<Set name="trustStorePath">/keystore</Set>
+								<Set name="trustStorePassword">wicket</Set>
+							</New>
+						</Arg>
+						<Arg>HTTP/1.1</Arg>
+					</New>
+				</Arg>
+				<Set name="port">8443</Set>
+				<Set name="idleTimeout">3600000</Set>
+				<Set name="acceptQueueSize">4</Set>
+				<Set name="soLingerTime">-1</Set>
+			</New>
+		</Arg>
+	</Call>
+	<Call name="addConnector">
+		<Arg>
+			<New class="org.eclipse.jetty.server.ServerConnector">
+				<Arg>
+					<Ref refid="server" />
+				</Arg>
+				<Set name="port">8080</Set>
+				<Set name="idleTimeout">3600000</Set>
+				<Set name="acceptQueueSize">4</Set>
+				<Set name="soLingerTime">-1</Set>
+			</New>
+		</Arg>
+	</Call>
+</Configure>

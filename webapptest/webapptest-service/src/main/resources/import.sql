@@ -1,0 +1,1 @@
+INSERT INTO TST_USER(ID, NAME, PASSWORD, SALT) VALUES(1000, 'osiefart','osiefart','123');

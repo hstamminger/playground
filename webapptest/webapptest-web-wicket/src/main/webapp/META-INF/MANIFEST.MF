@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Build-Time: 2013-04-26T12:18:04
+Maven-GroupId: info.selfhost.stammingerit.playground.webapptest
+Implementation-Title: Web-Layer and deployment
+Maven-Version: 1.0.0-SNAPSHOT
+Implementation-Version: 1.0.0-SNAPSHOT
+SCM-Branch: UNKNOWN_BRANCH
+Built-By: HSTAMMINGER
+Created-By: Apache Maven 3.0.5
+Maven-Name: Web-Layer and deployment
+SCM-Revision: 
+Implementation-Vendor-Id: info.selfhost.stammingerit.playground.webapp
+ test
+Build-Jdk: 1.7.0_03
+Maven-ArtifactId: webapptest-web-wicket
+Specification-Title: Web-Layer and deployment
+Maven-Buildtime: 2013-04-26T12:18:04
+Specification-Version: 1.0.0-SNAPSHOT
+Application-Version: 1.0.0-SNAPSHOT
+
