@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class UserService {
 	private static final Map<Integer, User> USERS_TABLE = new HashMap<Integer, User>();
 	static {
