@@ -1,47 +1,53 @@
 package info.selfhost.stammingerit.playground.webapptest.entities;
-import info.selfhost.stammingerit.playground.webapptest.entities.helper.IdGenerator;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Version;
 
 @MappedSuperclass
 public abstract class BaseEntity {
-    @Id
-    @Column(name = "ID")
-    private String id = IdGenerator.createId();
-    @Version
-    @Column(name = "OPTLOCK_VERSION")
-    private Long version;
+	@Id
+	@GeneratedValue
+	@Column(name = "ID")
+	private String id;// = IdGenerator.createId();
 
-    public String getId() {
-        return id;
-    }
+	@Version
+	@Column(name = "OPTLOCK_VERSION")
+	private Long version;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public Long getVersion() {
-        return version;
-    }
+	@SuppressWarnings("unused")
+	private void setId(String id) {
+		this.id = id;
+	}
 
-    public void setVersion(Long version) {
-        this.version = version;
-    }
+	public Long getVersion() {
+		return version;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public void setVersion(Long version) {
+		this.version = version;
+	}
 
-        BaseEntity that = (BaseEntity) o;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+		BaseEntity that = (BaseEntity) o;
 
-        return true;
-    }
+		if (id != null ? !id.equals(that.id) : that.id != null) return false;
 
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
-    }
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
 }

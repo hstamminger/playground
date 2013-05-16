@@ -2,6 +2,7 @@ package info.selfhost.stammingerit.playground.webapptest.web.jsf;
 
 import java.util.Date;
 
+@Deprecated
 public class User {
 	private Integer userId;
 	private String username;

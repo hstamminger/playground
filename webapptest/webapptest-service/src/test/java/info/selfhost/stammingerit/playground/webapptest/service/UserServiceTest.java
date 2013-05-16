@@ -1,14 +1,17 @@
 package info.selfhost.stammingerit.playground.webapptest.service;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.util.ReflectionUtils.findField;
+import static org.springframework.util.ReflectionUtils.makeAccessible;
+import static org.springframework.util.ReflectionUtils.setField;
 import info.selfhost.stammingerit.playground.webapptest.entities.User;
 import info.selfhost.stammingerit.playground.webapptest.repository.UserRepository;
 
-import org.junit.Test;
-
 import java.lang.reflect.Field;
 
-import static org.mockito.Mockito.*;
-import static org.springframework.util.ReflectionUtils.*;
+import org.junit.Test;
 
 public class UserServiceTest {
 
@@ -16,7 +19,7 @@ public class UserServiceTest {
     public void testCreateUser() throws Exception{
         User user = new User();
         user.setPassword("1234");
-        user.setName("testUser");
+        user.setUsername("testUser");
         UserRepository userDAO = mock(UserRepository.class);
         UserService userService = new UserService();
         setUserDAOOnUserService(userDAO, userService);
@@ -29,7 +32,7 @@ public class UserServiceTest {
         //needed cause we are testing the password encryption
         User user = new User();
         user.setPassword("1234");
-        user.setName("testUser");
+        user.setUsername("testUser");
         UserRepository userDAO = mock(UserRepository.class);
         UserService userService = new UserService();
         setUserDAOOnUserService(userDAO, userService);

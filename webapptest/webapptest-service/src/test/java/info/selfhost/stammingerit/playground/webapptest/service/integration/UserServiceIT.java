@@ -2,6 +2,7 @@ package info.selfhost.stammingerit.playground.webapptest.service.integration;
 
 import info.selfhost.stammingerit.playground.webapptest.entities.User;
 import info.selfhost.stammingerit.playground.webapptest.service.UserService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class UserServiceIT {
     @Test
     public void testIt() {
         User user = new User();
-        user.setName("test1");
+        user.setUsername("test1");
         user.setPassword("wuhaaa");
         userService.create(user);
     }

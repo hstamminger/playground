@@ -11,10 +11,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<tx:annotation-driven />
 	<context:component-scan base-package="info.selfhost.stammingerit.playground.webapptest" />
 	<context:annotation-config />
 	<context:spring-configured />
+	<tx:annotation-driven />
+
 	<!-- <import resource="infrastructure.xml" /> -->
 	<jpa:repositories base-package="info.selfhost.stammingerit.playground.webapptest" />
 

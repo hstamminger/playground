@@ -49,6 +49,7 @@
 		<!-- JavaEE 6 APIs -->
 		<!-- Servlet-API -->
 		<servlet-api.version>3.0.1</servlet-api.version>
+<!-- 		<servlet-api.version>3.1-b09</servlet-api.version> -->
 
 		<!-- JTA -->
 		<jta.version>1.1</jta.version>
@@ -58,6 +59,9 @@
 		<!-- because there is no javax.persistence:persistence-api:2.0 jar available -->
 		<hibernate-jpa-2.0-api.version>1.0.1.Final</hibernate-jpa-2.0-api.version>
 		<jpa.version>2.0.0</jpa.version>
+
+		<!-- JSR-330 -->
+		<javax.inject.version>1</javax.inject.version>
 
 		<!-- Hibernate Versions -->
 		<hibernate.version>4.2.0.Final</hibernate.version>
@@ -78,7 +82,9 @@
 		<wicket.version>6.7.0</wicket.version>
 
 		<!-- JSF / Primefaces -->
-		<jsf-api.version>2.1.21</jsf-api.version>
+		<javax.el-api.version>3.0-b08</javax.el-api.version>
+		<jsf-api.version>2.1.22</jsf-api.version>
+		<jsp-api.version>2.2.1-b03</jsp-api.version>
 		<jstl.version>1.2</jstl.version>
 		<primefaces.version>3.5</primefaces.version>
 		<primefaces-mobile.version>0.9.3</primefaces-mobile.version>
@@ -159,7 +165,7 @@
 		<versions-maven-plugin.version>2.0</versions-maven-plugin.version>
 		<aspectj-maven-plugin.version>1.4</aspectj-maven-plugin.version>
 		<tomcat7-maven-plugin.version>2.1</tomcat7-maven-plugin.version>
-		<maven-apt-plugin.version>1.0.4</maven-apt-plugin.version>
+		<apt-maven-plugin.version>1.1.0</apt-maven-plugin.version>
 	</properties>
 
 	<ciManagement>
@@ -214,6 +220,13 @@
 				<artifactId>javax.servlet-api</artifactId>
 				<version>${servlet-api.version}</version>
 				<scope>provided</scope>
+			</dependency>
+
+			<!-- JSR-330 -->
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>${javax.inject.version}</version>
 			</dependency>
 
 			<!-- HIBERNATE DEPENDENCIES -->
@@ -532,9 +545,14 @@
 				<version>${jsf-api.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>jstl</groupId>
+				<groupId>javax.servlet</groupId>
 				<artifactId>jstl</artifactId>
 				<version>${jstl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>javax.el-api</artifactId>
+				<version>${javax.el-api.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.primefaces</groupId>
@@ -1045,7 +1063,7 @@
 						<downloadJavadocs>true</downloadJavadocs>
 						<ajdtVersion>1.5</ajdtVersion>
 						<wtpversion>2.0</wtpversion>
-						<jeeversion>6</jeeversion>
+						<!-- <jeeversion>6</jeeversion> -->
 					</configuration>
 				</plugin>
 
@@ -1193,8 +1211,8 @@
 
 				<plugin>
 					<groupId>com.mysema.maven</groupId>
-					<artifactId>maven-apt-plugin</artifactId>
-					<version>${maven-apt-plugin.version}</version>
+					<artifactId>apt-maven-plugin</artifactId>
+					<version>${apt-maven-plugin.version}</version>
 				</plugin>
 
 				<plugin>
